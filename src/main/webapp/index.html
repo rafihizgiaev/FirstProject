@@ -1,0 +1,126 @@
+<html>
+<head>
+<title>Houses-R-us</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="styles.css" />
+
+
+ <script type="text/javascript"> 
+
+	
+
+	document.addEventListener("DOMContentLoaded", ()=>{
+			
+		
+	
+	});
+
+	var house ;
+	var updateTable = (house) =>{
+		
+	};
+		
+	
+		
+		
+		
+		
+</script> 
+</head>
+<body>
+	<div class="container-fluid">
+		<div>
+			<h1>Welcome to Houses-R-Us</h1>
+		</div>
+		<div class="row">
+			<div class="col-lg-6">
+				<h2>Add Home</h2>
+				<form id ="house" method="POST" action="/firstServlet">
+
+					<div class="form-group">
+						<label>Street Address</label> <input class="form-control" id="address"
+							type="text" name = "streetAddress" />
+					</div>
+					<div class="form-group">
+						<label>City</label> <input class="form-control" id="city"
+							type="text" name = "city"/>
+					</div>
+					<div class="form-group">
+						<label>Country</label> <input class="form-control" id="country"
+							type="text" name = "state"/>
+					</div>
+					<div class="form-group">
+						<label>State</label> <input class="form-control" id="state"
+							type="text" name = "country"/>
+					</div>
+					<div class="form-group">
+						<label>Postal Code</label> <input class="form-control" id="postal"
+							type="text" name = "postalCode"/>
+					</div>
+					<div class="form-group">
+						<label>Sqft</label> <input class="form-control" id="sqft"
+							type="number" name = "sqft"/>
+					</div>
+					<div class="form-group">
+						<label>Price</label> <input class="form-control" id="price"
+							type="number" name = "estPrice"/>
+					</div>
+					<div class="form-group">
+						<label>Number of Bedrooms</label> <input class="form-control" id="numberBedRooms"
+							type="number" name = "numberBedRooms"/>
+					</div>
+					<div class="form-group">
+						<label>Number of Bathrooms</label> <input class="form-control" id="numberOfBathRooms"
+							type="number" name = "numberBathRooms"/>
+					</div>
+					<div class="form-group">
+						<label for="forSale">For Sale?</label>
+						<input type="checkbox" id="forsale" name = "forSale">
+  						
+					</div>
+					<div class="form-group">
+						<label>Type of Property</label> <input class="form-control" id="typeOfProperty"
+							type="text" name = "typeOfProperty"/>
+					</div>
+					<div>
+						<input class="btn btn-primary submit-button" type="submit"
+							value="Save">
+					</div>
+				</form>
+			</div>
+			<div id="home-list" class="col-lg-6">
+				<h2>View all Homes</h2>
+				<table id = "housesTable" class="table">
+					<tr>
+						<th>Id</th>
+						<th>Street Address</th>
+						<th>City</th>
+						<th>State</th>
+						<th>Postal Code</th>
+						<th>Sqft</th>
+						<th>Estimated Price</th>
+						<th>Bedrooms</th>
+						<th>Bathrooms</th>
+						<th>For Sale?</th>
+						<th>Property Type</th>
+					</tr>
+				</table>
+
+			</div>
+		</div>
+	</div>
+</body>
+</html>
+
+<!--
+	List<Movie> allMovies = dao.findAll();
+		
+		// convert our list of movies to a json string
+		String json = new ObjectMapper().writeValueAsString(allMovies);
+		
+		// write the json string to our http response
+		resp.getWriter().print(json);
+		
+		// setting content type to JSON
+		resp.setContentType("application/json");
+		-->

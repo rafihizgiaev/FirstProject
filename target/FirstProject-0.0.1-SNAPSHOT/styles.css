@@ -1,0 +1,20 @@
+h1{
+    color: chocolate;
+    padding: 50px;
+}
+h2{
+    color: crimson;
+    padding: 50px;
+}
+#home-list{
+background-color: darkolivegreen;
+}
+.box{
+    color: darkmagenta;
+    padding: 50px;
+    
+}
+.submit-button{
+    color: gold;
+    border: none;
+}
