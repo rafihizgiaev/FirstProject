@@ -1,6 +1,14 @@
 package com.skillstorm.beans;
 
-public class House {
+import com.skillstorm.exceptions.invalidHouseAddressException;
+import com.skillstorm.exceptions.invalidHouseCityException;
+import com.skillstorm.exceptions.invalidHouseCountryException;
+import com.skillstorm.exceptions.invalidHousePostalCodeException;
+import com.skillstorm.exceptions.invalidHouseStateException;
+
+public class House {	// Here we define our House object class for the whole project
+	
+	// House attributes:
 	
 	private int houseid;
 	private String streetAddress;
@@ -16,40 +24,74 @@ public class House {
 	private String typeOfProperty;
 	
 	
-	
+	// House no parameter Constructor:
 	public House() {
 		super();
 	}
 
-
-
-	public House(String streetAddress, String city, String state, String country, String postalCode,
-			int sqft, Long estPrice, int numberBedRooms, int numberBathRooms, boolean forSale, String typeOfProperty) {
+	// House *No Id Constructor with all the attributes that are set to NOT NULL in our DB: ///Not in Use
+	public House(String streetAddress, String city, String state, String country, String postalCode) {
 		super();
-		this.streetAddress = streetAddress;
-		this.city = city;
-		this.state = state;
-		this.country = country;
-		this.postalCode = postalCode;
+		this.notNullSetters(streetAddress, city, state, country, postalCode);
+	}
+	// House *No Id Constructor with all the attributes that are set to NOT NULL in our DB and the 'sqft' attribute: ///Not in Use
+	public House(String streetAddress, String city, String state, String country, String postalCode, int sqft) {
+		super();
+		this.notNullSetters(streetAddress, city, state, country, postalCode);
 		this.sqft = sqft;
-		this.estPrice = estPrice;
+	}
+	// House *No Id Constructor with all the attributes that are set to NOT NULL in our DB, the 'sqft' and the estPrice: ///Not in Use
+	public House(String streetAddress, String city, String state, String country, String postalCode, int sqft, Long EstPrice) {
+		super();
+		this.notNullSetters(streetAddress, city, state, country, postalCode);
+		this.sqft = sqft;
+		this.estPrice = EstPrice;
+	}
+	// House *No Id Constructor with all the attributes that are set to NOT NULL in our DB, the 'sqft', the estPrice and the numberBedRooms: ///Not in Use
+	public House(String streetAddress, String city, String state, String country, String postalCode, int sqft, Long EstPrice, int numberBedRooms) {
+		super();
+		this.notNullSetters(streetAddress, city, state, country, postalCode);
+		this.sqft = sqft;
+		this.estPrice = EstPrice;
+		this.numberBedRooms = numberBedRooms;
+	}
+	// House *No Id Constructor with all the attributes that are set to NOT NULL in our DB, the 'sqft', the estPrice, the numberBedRooms and the numberBathRooms: ///Not in Use
+	public House(String streetAddress, String city, String state, String country, String postalCode, int sqft, Long EstPrice, int numberBedRooms, int numberBathRooms) {
+		super();
+		this.notNullSetters(streetAddress, city, state, country, postalCode);
+		this.sqft = sqft;
+		this.estPrice = EstPrice;
+		this.numberBedRooms = numberBedRooms;
+		this.numberBathRooms = numberBathRooms;
+	}
+	// House *No Id Constructor with all the attributes that are set to NOT NULL in our DB, the 'sqft', the estPrice, the numberBedRooms, the numberBathRooms and if forSale: ///Not in Use
+	public House(String streetAddress, String city, String state, String country, String postalCode, int sqft, Long EstPrice, int numberBedRooms, int numberBathRooms, boolean forSale) {
+		super();
+		this.notNullSetters(streetAddress, city, state, country, postalCode);
+		this.sqft = sqft;
+		this.estPrice = EstPrice;
+		this.numberBedRooms = numberBedRooms;
+		this.numberBathRooms = numberBathRooms;
+		this.forSale = forSale;
+	}
+	///In Use
+	// House *No Id Constructor with all the attributes that are set to NOT NULL in our DB, the 'sqft', the estPrice, the numberBedRooms, the numberBathRooms, if forSale and the typeOfProperty: 
+	public House(String streetAddress, String city, String state, String country, String postalCode, int sqft, Long EstPrice, int numberBedRooms, int numberBathRooms, boolean forSale, String typeOfProperty) {
+		super();
+		this.notNullSetters(streetAddress, city, state, country, postalCode);
+		this.sqft = sqft;
+		this.estPrice = EstPrice;
 		this.numberBedRooms = numberBedRooms;
 		this.numberBathRooms = numberBathRooms;
 		this.forSale = forSale;
 		this.typeOfProperty = typeOfProperty;
 	}
-
-
-
+	// House Constructor with all the attributes that are set to NOT NULL in our DB, the 'sqft', the estPrice, the numberBedRooms, the numberBathRooms, if forSale and the typeOfProperty:
 	public House(int houseid, String streetAddress, String city, String state, String country, String postalCode,
 			int sqft, Long estPrice, int numberBedRooms, int numberBathRooms, boolean forSale, String typeOfProperty) {
 		super();
 		this.houseid = houseid;
-		this.streetAddress = streetAddress;
-		this.city = city;
-		this.state = state;
-		this.country = country;
-		this.postalCode = postalCode;
+		this.notNullSetters(streetAddress, city, state, country, postalCode);
 		this.sqft = sqft;
 		this.estPrice = estPrice;
 		this.numberBedRooms = numberBedRooms;
@@ -58,191 +100,162 @@ public class House {
 		this.typeOfProperty = typeOfProperty;
 	}
 
-
-
-	public House(String streetAddress, String city, String state, String country, String postalCode, int sqft,
-			int numberBedRooms, int numberBathRooms, boolean forSale) {
-		super();
-		this.streetAddress = streetAddress;
-		this.city = city;
-		this.state = state;
-		this.country = country;
-		this.postalCode = postalCode;
-		this.sqft = sqft;
-		this.numberBedRooms = numberBedRooms;
-		this.numberBathRooms = numberBathRooms;
-		this.forSale = forSale;
-	}
-
-
-
-	public House(String streetAddress, String city, String state, String country, String postalCode, int sqft) {
-		super();
-		this.streetAddress = streetAddress;
-		this.city = city;
-		this.state = state;
-		this.country = country;
-		this.postalCode = postalCode;
-		this.sqft = sqft;
-	}
-
-
-
-	public House(String streetAddress, String city, String state, String country, String postalCode) {
-		super();
-		this.streetAddress = streetAddress;
-		this.city = city;
-		this.state = state;
-		this.country = country;
-		this.postalCode = postalCode;
-	}
-
-
-
+	
+	//House ID getters and setters:
 	public int getHouseid() {
 		return houseid;
 	}
-
-
 
 	public void setHouseid(int houseid) {
 		this.houseid = houseid;
 	}
 
+	
+	
 
-
+	//House street address getters and setters:
 	public String getStreetAddress() {
 		return streetAddress;
 	}
-
-
-
-	public void setStreetAddress(String streetAddress) {
+	//Setter with address exception
+	public void setStreetAddress(String streetAddress) throws invalidHouseAddressException {
+		if(streetAddress == "") {
+			throw new invalidHouseAddressException("Street Address not Valid");
+		}
 		this.streetAddress = streetAddress;
 	}
 
+	
+	
 
-
+	//House city getters and setters:
 	public String getCity() {
 		return city;
 	}
-
-
-
-	public void setCity(String city) {
+	//Setter with city exception
+	public void setCity(String city) throws invalidHouseCityException {
+		if(city == "") {
+			throw new invalidHouseCityException("Invalid City");
+		}
 		this.city = city;
 	}
 
 
-
+	
+	
+	//House state getters and setters:
 	public String getState() {
 		return state;
 	}
-
-
-
-	public void setState(String state) {
+	//Setter with state exception
+	public void setState(String state) throws invalidHouseStateException {
+		if(state == "") {
+			throw new invalidHouseStateException("Invalid State");
+		}
 		this.state = state;
 	}
 
 
-
+	
+	
+	
+	//House country getters and setters
 	public String getCountry() {
 		return country;
 	}
-
-
-
-	public void setCountry(String country) {
+	//Setter with country exception
+	public void setCountry(String country) throws invalidHouseCountryException{
+		if(country == "") {
+			throw new invalidHouseCountryException("Invalid Country");
+		}
 		this.country = country;
 	}
 
+	
+	
 
-
+	//House postalCode getters and setters
 	public String getPostalCode() {
 		return postalCode;
 	}
-
-
-
-	public void setPostalCode(String postalCode) {
+	//Setter with postalCode exception
+	public void setPostalCode(String postalCode) throws invalidHousePostalCodeException{
+		if(postalCode == "") {
+			throw new invalidHousePostalCodeException("Invalid Postal Code");
+		}
 		this.postalCode = postalCode;
 	}
 
 
-
+	
+	
+	//House sqft getters and setters
 	public int getSqft() {
 		return sqft;
 	}
-
-
-
 	public void setSqft(int sqft) {
 		this.sqft = sqft;
 	}
 
 
-
+	
+	
+	
+	
+	//House estPrice getters and setters
 	public Long getEstPrice() {
 		return estPrice;
 	}
-
-
-
 	public void setEstPrice(Long estPrice) {
 		this.estPrice = estPrice;
 	}
 
 
 
+	
+	
+	//House numberBedRooms getters and setters
 	public int getNumberBedRooms() {
 		return numberBedRooms;
 	}
-
-
-
 	public void setNumberBedRooms(int numberBedRooms) {
 		this.numberBedRooms = numberBedRooms;
 	}
 
 
 
+	
+	//House numberBathRooms getters and setters
 	public int getNumberBathRooms() {
 		return numberBathRooms;
 	}
-
-
-
 	public void setNumberBathRooms(int numberBathRooms) {
 		this.numberBathRooms = numberBathRooms;
 	}
-
-
-
+	
+	
+	
+	
+	//House forSale getters and setters
 	public boolean isForSale() {
 		return forSale;
 	}
-
-
-
 	public void setForSale(boolean forSale) {
 		this.forSale = forSale;
 	}
 
 
-
+	//House typeOfProperty getters and setters
 	public String getTypeOfProperty() {
 		return typeOfProperty;
 	}
-
-
-
 	public void setTypeOfProperty(String typeOfProperty) {
 		this.typeOfProperty = typeOfProperty;
 	}
 
 
 
+	// House hashCode method
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -263,7 +276,7 @@ public class House {
 	}
 
 
-
+	// House equals method
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -322,7 +335,7 @@ public class House {
 	}
 
 
-
+	// House toString method
 	@Override
 	public String toString() {
 		return "House [houseid = " + houseid + ", streetAddress = " + streetAddress + ", city = " + city + ", state = " + state
@@ -332,12 +345,20 @@ public class House {
 	}
 	
 	
+	// House one setter for all NOT NULL attributes from DB with all exceptions checked// Implemented in all of the constructors
+	public void notNullSetters(String streetAddress, String city, String state, String country, String postalCode) {
 	
-	
-	
-	
-	
-	
-	
-	
+	try {	
+		this.setStreetAddress(streetAddress);
+		this.setCity(city);	
+		this.setState(state);
+		this.setCountry(country); 
+		this.setPostalCode(postalCode);
+} catch(invalidHouseAddressException | invalidHouseCityException | invalidHouseStateException | invalidHouseCountryException | invalidHousePostalCodeException e) {
+	e.printStackTrace();
+	e.toString();
 }
+	}
+}
+
+//////////////////////////////// RAFI HIZGIAEV ///////////////////////////////
